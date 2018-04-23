@@ -1,0 +1,3 @@
+rootProject.name = 'TShop'
+
+include ':app'
