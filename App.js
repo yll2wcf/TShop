@@ -12,6 +12,8 @@ import {
     View
 } from 'react-native';
 
+import Counter from "./src/component/Counter"
+
 // 根据不同的平台加载不同的代码
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
@@ -27,10 +29,7 @@ export default class App extends Component<Props> {
     render() {
         return ( // 渲染布局
             <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    这是 React Native 基础代码
-                </Text>
-
+                <Counter/>
             </View>
         );
     }
@@ -42,10 +41,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 30, // 字体大小
-        textAlign: 'center', // 文字居中对齐
-        color: 'red', // 字体颜色改成红色
     }
 });
