@@ -19,7 +19,7 @@ export default class Counter extends Component {
 
     render() {
         return ( // 渲染布局
-            <View style={[this.props.style, styles.operatingBox]}>
+            <View style={styles.operatingBox}>
                 <TouchableOpacity activeOpacity={0.2}
                                   onPress={this._reduce.bind(this)}>
                     <View style={styles.reduce}>
