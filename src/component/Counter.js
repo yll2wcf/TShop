@@ -13,13 +13,13 @@ export default class Counter extends Component {
         super(props);
         // 初始状态
         this.state = {
-            value: 1
+            value: this.props.initValue || 1
         };
     }
 
     render() {
         return ( // 渲染布局
-            <View style={styles.operatingBox}>
+            <View style={[this.props.style, styles.operatingBox]}>
                 <TouchableOpacity activeOpacity={0.2}
                                   onPress={this._reduce.bind(this)}>
                     <View style={styles.reduce}>

@@ -29,7 +29,9 @@ export default class App extends Component<Props> {
     render() {
         return ( // 渲染布局
             <View style={styles.container}>
-                <Counter/>
+                <Counter style={{margin:10}} initValue={1}/>
+                <Counter style={{margin:10}} initValue={2}/>
+                <Counter style={{margin:10}} initValue={3}/>
             </View>
         );
     }
