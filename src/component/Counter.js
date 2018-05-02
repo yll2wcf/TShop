@@ -7,6 +7,8 @@ import {
     TextInput
 } from 'react-native';
 
+import PropTypes from 'prop-types';
+
 export default class Counter extends Component {
     // 构造
     constructor(props) {
@@ -16,6 +18,10 @@ export default class Counter extends Component {
             value: this.props.initValue || 1
         };
     }
+    // 默认属性
+    static defaultProps = {
+        initValue: 1
+    };
 
     render() {
         return ( // 渲染布局
@@ -117,3 +123,8 @@ const styles = StyleSheet.create({
         fontSize: 14
     },
 });
+
+Counter.propTypes={
+    initValue:PropTypes.number,
+    style:PropTypes.object
+};
