@@ -12,49 +12,20 @@ import PropTypes from 'prop-types';
 export default class Counter extends Component {
     // 构造
     constructor(props) {
-        console.log("constructor");
         super(props);
         // 初始状态
         this.state = {
             value: this.props.initValue || 1
         };
+        this._update = this._update.bind(this);
     }
+
     // 默认属性
     static defaultProps = {
         initValue: 1
     };
 
-    componentWillMount() {
-        console.log("componentWillMount")
-    }
-
-    componentDidMount() {
-        console.log("componentDidMount")
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log("componentWillReceiveProps")
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log("shouldComponentUpdate")
-        return true;
-    }
-    componentWillUpdate(){
-        console.log("componentWillUpdate")
-    }
-
-    componentDidUpdate() {
-        console.log("componentDidUpdate")
-    }
-
-    componentWillUnmount() {
-        console.log("componentWillUnmount")
-    }
-
-
     render() {
-        console.log("render")
         return ( // 渲染布局
             <View style={[this.props.style, styles.operatingBox]}>
                 <TouchableOpacity activeOpacity={0.2}
@@ -65,12 +36,12 @@ export default class Counter extends Component {
                 </TouchableOpacity>
                 <View style={styles.inpBox}>
                     <TextInput style={styles.inp1}
-                               returnKeyLabel='done'
+                               returnKeyType='done'
                                maxLength={3}
                                onEndEditing={this._checkNumber.bind(this)}
                                value={this.state.value.toString()}
                                keyboardType="numeric"
-                               onChangeText={(txt) => this.setState({value:Number(txt)})}
+                               onChangeText={(txt) => this._update(Number(txt))}
                                autoFocus={false}
                                underlineColorAndroid="transparent">
                     </TextInput>
@@ -85,27 +56,32 @@ export default class Counter extends Component {
             </View>
         );
     }
-    _checkNumber(){
-        let value=this.state.value;
-        if(value===''||value<1){
-            value=1;
-        }else{
-            value=Math.floor(value);
+
+    _checkNumber() {
+        let value = this.state.value;
+        console.log(value);
+        if (value === '' || value < 1) {
+            value = 1;
+        } else {
+            value = Math.floor(value);
         }
-        this.setState({value:value})
+        this._update(value);
     }
 
 
     _reduce() {
-        this.setState({
-            value: this.state.value - 1
-        })
+        let value=this.state.value - 1;
+        if (value < 1) value = 1;
+        this._update(value);
     }
 
     _plus() {
-        this.setState({
-            value: this.state.value + 1
-        })
+        this._update(this.state.value + 1);
+    }
+
+    _update(value) {
+        this.props.onUpdate(this.state.value, value);
+        this.setState({value:value})
     }
 }
 
@@ -155,7 +131,7 @@ const styles = StyleSheet.create({
     },
 });
 
-Counter.propTypes={
-    initValue:PropTypes.number,
-    style:PropTypes.object
+Counter.propTypes = {
+    initValue: PropTypes.number,
+    style: PropTypes.object
 };
