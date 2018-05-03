@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 export default class Counter extends Component {
     // 构造
     constructor(props) {
+        console.log("constructor");
         super(props);
         // 初始状态
         this.state = {
@@ -23,7 +24,37 @@ export default class Counter extends Component {
         initValue: 1
     };
 
+    componentWillMount() {
+        console.log("componentWillMount")
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount")
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log("componentWillReceiveProps")
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("shouldComponentUpdate")
+        return true;
+    }
+    componentWillUpdate(){
+        console.log("componentWillUpdate")
+    }
+
+    componentDidUpdate() {
+        console.log("componentDidUpdate")
+    }
+
+    componentWillUnmount() {
+        console.log("componentWillUnmount")
+    }
+
+
     render() {
+        console.log("render")
         return ( // 渲染布局
             <View style={[this.props.style, styles.operatingBox]}>
                 <TouchableOpacity activeOpacity={0.2}

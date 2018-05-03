@@ -20,8 +20,8 @@ export default class App extends Component<Props> {
         return ( // 渲染布局
             <View style={styles.container}>
                 <Counter style={{margin: 10}}/>
-                <Counter style={{margin: 10}} initValue={2}/>
-                <Counter style={{margin: 10}} initValue={3}/>
+                {/*<Counter style={{margin: 10}} initValue={2}/>*/}
+                {/*<Counter style={{margin: 10}} initValue={3}/>*/}
             </View>
         );
     }
