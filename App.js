@@ -33,13 +33,11 @@ export default class App extends Component<Props> {
                 <Counter style={{margin: 10}} onUpdate={this.onUpdate} initValue={this.initValues[0]}/>
                 <Counter style={{margin: 10}} onUpdate={this.onUpdate} initValue={this.initValues[1]}/>
                 <Counter style={{margin: 10}} onUpdate={this.onUpdate} initValue={this.initValues[2]}/>
-
-
             </View>
         );
     }
-    onUpdate(oldCounter,newCounter){
-        const valueChange=newCounter-oldCounter;
+    onUpdate(oldValue,newValue){
+        const valueChange=newValue-oldValue;
         this.setState({sum:this.state.sum+valueChange})
     }
 }

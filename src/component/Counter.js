@@ -22,7 +22,8 @@ export default class Counter extends Component {
 
     // 默认属性
     static defaultProps = {
-        initValue: 1
+        initValue: 1,
+        onUpdate: f => f // 默认是一个什么都不做的函数。
     };
 
     render() {
