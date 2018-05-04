@@ -70,7 +70,7 @@ export default class Counter extends Component {
 
 
     _reduce() {
-        let value=this.state.value - 1;
+        let value = this.state.value - 1;
         if (value < 1) value = 1;
         this._update(value);
     }
@@ -81,7 +81,7 @@ export default class Counter extends Component {
 
     _update(value) {
         this.props.onUpdate(this.state.value, value);
-        this.setState({value:value})
+        this.setState({value: value})
     }
 }
 
@@ -133,5 +133,6 @@ const styles = StyleSheet.create({
 
 Counter.propTypes = {
     initValue: PropTypes.number,
-    style: PropTypes.object
+    style: PropTypes.object,
+    onUpdate: PropTypes.func
 };
