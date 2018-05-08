@@ -3,50 +3,43 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-// 导入React 和 RN 控件
-import React, {Component} from 'react';
+import React from 'react';
+//导入 react-navigation 组件
 import {
-    StyleSheet,
-    View,
-    Text
-} from 'react-native';
+    StackNavigator,
+} from 'react-navigation';
+//页面切换动画插入器
+import CardStackStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 
-import Counter from "./src/component/Counter"
+import SplashPage from './src/pages/SplashPage';
+import IndexPage from './src/pages/IndexPage';
 
-type Props = {};
-// ES6 语法
-export default class App extends Component<Props> {
-    constructor(props) {
-        super(props);
-        this.initValues = [1, 2, 3];
-        const initSum = this.initValues.reduce((a, b) => a + b, 0);
-        this.state = {
-            sum: initSum
-        };
-        this.onUpdate=this.onUpdate.bind(this)
-    }
 
-    render() {
-        return ( // 渲染布局
-            <View style={styles.container}>
-                <Text style={{margin:10,fontSize:20,color:'black'}}>总计 {this.state.sum}</Text>
-                <Counter style={{margin: 10}} onUpdate={this.onUpdate} initValue={this.initValues[0]}/>
-                <Counter style={{margin: 10}} onUpdate={this.onUpdate} initValue={this.initValues[1]}/>
-                <Counter style={{margin: 10}} onUpdate={this.onUpdate} initValue={this.initValues[2]}/>
-            </View>
-        );
+const App = StackNavigator({
+    SplashPage: {
+        screen: SplashPage,
+        navigationOptions: {
+            gesturesEnabled: true,
+            headerTitle: null
+        }
+    },
+    IndexPage: {
+        screen: IndexPage,
+        navigationOptions: {
+            gesturesEnabled: true,
+            headerTitle: null
+        }
     }
-    onUpdate(oldValue,newValue){
-        const valueChange=newValue-oldValue;
-        this.setState({sum:this.state.sum+valueChange})
-    }
-}
-// 样式文件
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    }
+}, {
+    mode: 'card',// 页面切换模式, 左右是card(相当于iOS中的push效果), 上下是modal(相当于iOS中的modal效果)
+    headerMode: 'none',//// 导航栏的显示模式, screen: 有渐变透明效果, float: 无透明效果, none: 隐藏导航栏
+    onTransitionStart: () => {
+    },
+    onTransitionEnd: () => {
+    },
+    transitionConfig: () => ({
+        screenInterpolator: CardStackStyleInterpolator.forHorizontal
+    })
 });
+
+export default App
