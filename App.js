@@ -6,7 +6,7 @@
 import React from 'react';
 //导入 react-navigation 组件
 import {
-    StackNavigator,
+    createStackNavigator,
 } from 'react-navigation';
 //页面切换动画插入器
 import CardStackStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
@@ -15,7 +15,7 @@ import SplashPage from './src/pages/SplashPage';
 import IndexPage from './src/pages/IndexPage';
 
 
-const App = StackNavigator({
+const App = createStackNavigator({
     SplashPage: {
         screen: SplashPage,
         navigationOptions: {
