@@ -10,10 +10,11 @@ export default class SplashPage extends Component {
         // 定时任务
         this.timer = setTimeout(() => {
             // 跳转到下一个页面
-            this.props.navigation.replace('IndexPage');
+            this.props.navigation.replace('MyTab');
             // 移除定时任务
             this.timer && clearTimeout(this.timer);
-        }, 2000);
+        },1000);
+
     }
 
     render() {
