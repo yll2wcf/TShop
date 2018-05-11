@@ -62,7 +62,6 @@ const MyTab = createBottomTabNavigator({
             }
         }
     }, {
-        swipeEnabled: true,
         tabBarOptions: {
             // label和icon的前景色 活跃状态下（选中）
             activeTintColor: theme.primaryColor,

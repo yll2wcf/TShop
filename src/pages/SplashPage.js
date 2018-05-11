@@ -22,7 +22,6 @@ export default class SplashPage extends Component {
             <Image style={{width: theme.screenWidth, height: theme.screenHeight}}
                    source={require('../images/launch.png')}
                    resizeMode="cover"/>
-
         );
     }
 }
