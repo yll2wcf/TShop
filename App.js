@@ -77,7 +77,7 @@ const App = createStackNavigator({
         screen: SplashPage,
         navigationOptions: {
             gesturesEnabled: true,
-            headerTitle: null //去掉 react-navigation 提供的标题
+            header: null //去掉 react-navigation 提供的标题
         }
     },
     MyTab: {
