@@ -24,7 +24,6 @@ const MyTab = createBottomTabNavigator({
         IndexPage: {
             screen: IndexPage,
             navigationOptions: {
-                header: null,
                 tabBarLabel: '首页',
                 tabBarIcon: ({focused, tintColor}) => (
                     <Icon name={`ios-home${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
@@ -34,7 +33,6 @@ const MyTab = createBottomTabNavigator({
         CategoryPage: {
             screen: CategoryPage,
             navigationOptions: {
-                header: null,
                 tabBarLabel: '分类',
                 tabBarIcon: ({focused, tintColor}) => (
                     <Icon name={`ios-apps${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
@@ -44,7 +42,6 @@ const MyTab = createBottomTabNavigator({
         CartPage: {
             screen: CartPage,
             navigationOptions: {
-                header: null,
                 tabBarLabel: '购物车',
                 tabBarIcon: ({focused, tintColor}) => (
                     <Icon name={`ios-cart${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
@@ -54,7 +51,6 @@ const MyTab = createBottomTabNavigator({
         MyPage: {
             screen: MyPage,
             navigationOptions: {
-                header: null,
                 tabBarLabel: '我的',
                 tabBarIcon: ({focused, tintColor}) => (
                     <Icon name={`ios-person${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
@@ -81,7 +77,11 @@ const App = createStackNavigator({
         }
     },
     MyTab: {
-        screen: MyTab
+        screen: MyTab,
+        navigationOptions: {
+            gesturesEnabled: true,
+            header: null //去掉 react-navigation 提供的标题
+        }
     }
 }, {
     mode: 'card',// 页面切换模式, 左右是card(相当于iOS中的push效果), 上下是modal(相当于iOS中的modal效果)
