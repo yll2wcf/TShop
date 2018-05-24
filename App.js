@@ -7,7 +7,8 @@ import React from 'react';
 //导入 react-navigation 组件
 import {
     createStackNavigator,
-    createBottomTabNavigator
+    createBottomTabNavigator,
+    createMaterialTopTabNavigator
 } from 'react-navigation';
 //页面切换动画插入器
 import CardStackStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
@@ -17,9 +18,68 @@ import theme from './src/config/theme';
 import SplashPage from './src/pages/SplashPage';
 import IndexPage from './src/pages/IndexPage';
 import CategoryPage from './src/pages/CategoryPage';
+import BrandPage from './src/pages/BrandPage';
 import CartPage from './src/pages/CartPage';
 import MyPage from './src/pages/MyPage';
+import CustomTabBar from './src/component/CustomTabBar';
 
+const CategoryTab = createMaterialTopTabNavigator({
+    CategoryPage: {
+        screen: CategoryPage,
+        navigationOptions: {
+            tabBarLabel: '品类'
+        }
+    },
+    BrandPage: {
+        screen: BrandPage,
+        navigationOptions: {
+            tabBarLabel: '品牌'
+        }
+    }
+}, {
+    swipeEnabled: true,// 允许左右滑动
+    animationEnabled: true,//切换页面时显示动画
+    backBehavior: 'none',
+    tabBarOptions: {
+        // tabbar上label的style
+        labelStyle: {
+            //marginTop:0
+        },
+        // tabbar的style
+        style: {
+            height: theme.actionBar.height + theme.barContentPad,
+            marginHorizontal: theme.screenWidth / 6,
+            paddingTop: theme.barContentPad,
+            backgroundColor: '#fff'
+        },
+        tabStyle: {
+            width: theme.screenWidth * 1 / 3
+        },
+        // label和icon的背景色 活跃状态下
+        activeBackgroundColor: '#fff',
+        // label和icon的前景色 活跃状态下（选中）
+        activeTintColor: theme.primaryColor,
+        // label和icon的背景色 不活跃状态下
+        inactiveBackgroundColor: '#fff',
+        // label和icon的前景色 不活跃状态下(未选中)
+        inactiveTintColor: theme.lightBlack,
+        showIcon: false,
+        // 是否显示label，默认为true
+        showLabel: true,
+        // 不透明度为按选项卡(iOS和Android < 5.0)
+        pressOpacity: 0.3,
+        indicatorStyle: { // Tabbar下划线样式
+            height: 2,
+            width: theme.screenWidth / 9,
+            backgroundColor: theme.primaryColor,
+            left: theme.screenWidth / 9
+        }
+    },
+    // 自定义 TabBar
+    tabBarComponent: (props) => (
+        <CustomTabBar {...props}/>
+    )
+});
 const MyTab = createBottomTabNavigator({
         IndexPage: {
             screen: IndexPage,
@@ -31,7 +91,7 @@ const MyTab = createBottomTabNavigator({
             }
         },
         CategoryPage: {
-            screen: CategoryPage,
+            screen: CategoryTab,
             navigationOptions: {
                 tabBarLabel: '分类',
                 tabBarIcon: ({focused, tintColor}) => (
