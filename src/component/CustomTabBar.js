@@ -1,23 +1,18 @@
-import {
-    withNavigation
-} from 'react-navigation';
 import React, {Component} from 'react';
 import {
     View,
     TouchableOpacity
 } from 'react-native';
 import {MaterialTopTabBar} from 'react-navigation-tabs'
-import px2dp from '../utils/px2dp';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 class CustomTabBar extends Component {
     render() {
         return (
-            <View style={{backgroundColor: '#fff'}}>
+            <View style={{position: 'relative', backgroundColor: '#fff'}}>
                 <MaterialTopTabBar {...this.props}/>
-                <TouchableOpacity style={{position: 'absolute', right: px2dp(24), bottom: px2dp(20)}}
-                                  onPress={() => this.props.navigation.navigate('SearchPage')}>
+                <TouchableOpacity style={{position: 'absolute', right: 12, bottom: 10}}>
                     <Ionicons name={'ios-search-outline'}
                               size={22}
                               color={'#666666'}/>
@@ -27,4 +22,4 @@ class CustomTabBar extends Component {
     }
 }
 
-export default withNavigation(CustomTabBar);
+export default CustomTabBar;
