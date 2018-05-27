@@ -4,7 +4,6 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
-
 type Props = {};
 export default class MyPage extends Component<Props> {
 

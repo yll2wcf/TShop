@@ -4,9 +4,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import {MaterialTopTabBar} from 'react-navigation-tabs'
-
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
 class CustomTabBar extends Component {
     render() {
         return (

@@ -46,10 +46,12 @@ const CategoryTab = createMaterialTopTabNavigator({
         },
         // tabbar的style
         style: {
-            height: 64,
+            height: theme.actionBar.height+theme.barContentPad,//修改高度
             marginHorizontal: theme.screenWidth / 6,
-            paddingTop: 20,
-            backgroundColor: '#fff'
+            paddingTop: theme.barContentPad, //不同平台高度不一样
+            backgroundColor: '#fff',
+            elevation: 0, //组件的高度为0 就没有阴影了
+            shadowOpacity: 0 //阴影完全透明
         },
         // 每个选项卡的样式
         tabStyle: {
