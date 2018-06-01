@@ -22,6 +22,7 @@ import BrandPage from './src/pages/BrandPage';
 import CartPage from './src/pages/CartPage';
 import MyPage from './src/pages/MyPage';
 import CustomTabBar from './src/component/CustomTabBar';
+import SearchPage from "./src/pages/SearchPage";
 
 const CategoryTab = createMaterialTopTabNavigator({
     CategoryPage: {
@@ -135,14 +136,21 @@ const App = createStackNavigator({
         screen: SplashPage,
         navigationOptions: {
             gesturesEnabled: true,
-            header: null //去掉 react-navigation 提供的标题
+            header: null  //去掉 react-navigation 提供的标题
         }
     },
     MyTab: {
         screen: MyTab,
         navigationOptions: {
             gesturesEnabled: true,
-            header: null //去掉 react-navigation 提供的标题
+            header: null
+        }
+    },
+    SearchPage: {
+        screen: SearchPage,
+        navigationOptions: {
+            gesturesEnabled: true,
+            header: null
         }
     }
 }, {
