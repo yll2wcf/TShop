@@ -13,7 +13,10 @@ class CustomTabBar extends Component {
             <View style={{position: 'relative', backgroundColor: '#fff'}}>
                 <MaterialTopTabBar {...this.props}/>
                 <TouchableOpacity style={{position: 'absolute', right: 12, bottom: 10}}
-                                  onPress={() => this.props.navigation.navigate('SearchPage')}>
+                                  onPress={() => this.props.navigation.navigate('SearchPage', {
+                                      param1: 86,
+                                      param2: 'anything you want here'
+                                  })}>
                     <Ionicons name={'ios-search-outline'}
                               size={22}
                               color={'#666666'}/>
