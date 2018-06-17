@@ -4,6 +4,7 @@ import {
     Text,
     StyleSheet, StatusBar
 } from 'react-native';
+import theme from "../config/theme";
 
 type Props = {};
 export default class CartPage extends Component<Props> {
@@ -11,18 +12,24 @@ export default class CartPage extends Component<Props> {
     render() {
         return ( // 渲染布局
             <View style={styles.container}>
-                <StatusBar barStyle={'dark-content'} backgroundColor={'#fff'}/>
-                <Text style={{margin:10,fontSize:20,color:'black'}}>购物车</Text>
+                <View style={{margin:10,width:40,height:50,backgroundColor:'red'}}/>
+                <View style={{margin:10,width:60,height:50,backgroundColor:'green'}}/>
+                <View style={{margin:10,width:80,height:50,backgroundColor:'blue'}}/>
+                <View style={{margin:10,width:100,height:50,backgroundColor:'black'}}/>
+                <View style={{margin:10,width:100,height:50,backgroundColor:'orange'}}/>
+                <View style={{margin:10,width:40,height:50,backgroundColor:'pink'}}/>
             </View>
+
         );
     }
 }
 // 样式文件
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        paddingTop:theme.barContentPad,
+        flexDirection:'row',
+        flexWrap:'wrap',
+        justifyContent:'space-around',
+        backgroundColor: '#F5FCFF'
     }
 });
