@@ -19,7 +19,6 @@ export default class CartPage extends Component<Props> {
                 <View style={{margin:10,width:100,height:50,backgroundColor:'orange'}}/>
                 <View style={{margin:10,width:40,height:50,backgroundColor:'pink'}}/>
             </View>
-
         );
     }
 }

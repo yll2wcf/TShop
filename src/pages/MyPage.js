@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import {
     View,
-    Text,
     StyleSheet
 } from 'react-native';
+import px2dp from "../utils/px2dp";
+
 type Props = {};
 export default class MyPage extends Component<Props> {
 
     render() {
         return ( // 渲染布局
             <View style={styles.container}>
-                <Text style={{margin:10,fontSize:20,color:'black'}}>个人中心</Text>
+                <View style={{height: px2dp(100), width: px2dp(750), backgroundColor: 'red'}}/>
             </View>
         );
     }
