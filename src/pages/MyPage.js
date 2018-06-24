@@ -5,13 +5,15 @@ import {
     Platform,
     TouchableOpacity,
     Image,
-    ImageBackground, StatusBar
+    ImageBackground,
+    ScrollView
 } from 'react-native';
 
 import theme from '../config/theme';
 import px2dp from '../utils/px2dp';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import TextFix from "../component/TextFix";
 
 export default class MyPage extends Component<{}> {
@@ -60,6 +62,69 @@ export default class MyPage extends Component<{}> {
                         </View>
                     </View>
                 </ImageBackground>
+                <ScrollView>
+                    <View style={[styles.rowItem, {height: px2dp(100), marginTop: px2dp(32)}]}>
+                        <TextFix style={{fontSize: px2dp(30), color: '#333333', flex: 1}}>购买的订单</TextFix>
+                        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+                            <TextFix
+                                style={{fontSize: px2dp(24), color: '#999999', marginRight: px2dp(24)}}>购买的订单</TextFix>
+                            <SimpleLineIcons
+                                name={'arrow-right'}
+                                size={16}
+                                color={'#999'}/>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={[styles.rowItem, {height: px2dp(140)}]}>
+                        <TouchableOpacity style={styles.countItem}>
+                            <Image source={require('../images/to_pay.png')}/>
+                            <TextFix style={{fontSize: px2dp(24), color: '#333333', marginTop: px2dp(12)}}>待付款</TextFix>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.countItem}>
+                            <Image source={require('../images/to_ship.png')}/>
+                            <TextFix style={{fontSize: px2dp(24), color: '#333333', marginTop: px2dp(12)}}>待发货</TextFix>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.countItem}>
+                            <Image source={require('../images/to_receive.png')}/>
+                            <TextFix style={{fontSize: px2dp(24), color: '#333333', marginTop: px2dp(12)}}>待收货</TextFix>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.countItem}>
+                            <Image source={require('../images/to_finish.png')}/>
+                            <TextFix style={{fontSize: px2dp(24), color: '#333333', marginTop: px2dp(12)}}>未评价</TextFix>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.countItem}>
+                            <Image source={require('../images/to_issue.png')}/>
+                            <TextFix style={{fontSize: px2dp(24), color: '#333333', marginTop: px2dp(12)}}>退换货</TextFix>
+                        </TouchableOpacity>
+                    </View>
+                    <TouchableOpacity style={[styles.rowItem, styles.topBorder, {height: px2dp(120)}]}>
+                        <TextFix style={{fontSize: px2dp(32), color: '#333333', flex: 1}}>我的地址</TextFix>
+                        <SimpleLineIcons
+                            name={'arrow-right'}
+                            size={20}
+                            color={'#999'}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.rowItem, styles.topBorder, {height: px2dp(120)}]}>
+                        <TextFix style={{fontSize: px2dp(32), color: '#333333', flex: 1}}>账户与安全</TextFix>
+                        <SimpleLineIcons
+                            name={'arrow-right'}
+                            size={20}
+                            color={'#999'}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.rowItem, styles.topBorder, {height: px2dp(120)}]}>
+                        <TextFix style={{fontSize: px2dp(32), color: '#333333', flex: 1}}>客服与帮助</TextFix>
+                        <SimpleLineIcons
+                            name={'arrow-right'}
+                            size={20}
+                            color={'#999'}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.rowItem, styles.topBorder, {height: px2dp(120)}]}>
+                        <TextFix style={{fontSize: px2dp(32), color: '#333333', flex: 1}}>意见反馈</TextFix>
+                        <SimpleLineIcons
+                            name={'arrow-right'}
+                            size={20}
+                            color={'#999'}/>
+                    </TouchableOpacity>
+                </ScrollView>
             </View>
         );
     }
@@ -99,5 +164,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: px2dp(16)
+    },
+    rowItem: {
+        marginHorizontal: px2dp(24),
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    topBorder: {
+        borderTopWidth: px2dp(1),
+        borderTopColor: '#f5f5f5'
     }
 });
