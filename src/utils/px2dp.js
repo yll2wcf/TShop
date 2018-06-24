@@ -13,7 +13,7 @@ const r2=2;
 const w2 = 750/r2;
 const h2 = 1334/r2;
 
-export const DEFAULT_DENSITY=2;
+export const DEFAULT_DENSITY=r2;
 
 /**
  * 屏幕适配,缩放size

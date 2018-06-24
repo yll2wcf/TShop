@@ -23,4 +23,4 @@ $ git checkout 1a
 
 [零、React Native电商项目实战——开篇](https://blog.csdn.net/yulianlin/article/details/80580701)
 
-[一、React Native 电商项目实战——1.创建项目](https://blog.csdn.net/yulianlin/article/details/80580701)
+[一、React Native 电商项目实战——1.创建项目](https://blog.csdn.net/yulianlin/article/details/80670139)
